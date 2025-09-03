@@ -29,19 +29,49 @@
             background: linear-gradient(135deg, #040505, #1d7505);
             color: white;
             padding: 20px 0;
-            text-align: center;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo-container {
+            width: 120px;
+            height: 120px;
+            margin-right: 20px;
+            flex-shrink: 0;
         }
         
         .logo {
-            font-size: 2.5rem;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0.9; /* Transparência da logo */
+        }
+        
+        .title-container {
+            flex: 1;
+        }
+        
+        .logo-title {
+            font-size: 2.2rem;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
+            color: yellow;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
         
         .subtitle {
             font-size: 1.2rem;
             opacity: 0.9;
+            max-width: 600px;
         }
         
         .tabs {
@@ -150,36 +180,56 @@
         }
         
         @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-container {
+                margin-right: 0;
+                margin-bottom: 15px;
+                width: 100px;
+                height: 100px;
+            }
+            
+            .logo-title {
+                font-size: 1.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
             .tab-button {
                 padding: 12px 15px;
                 font-size: 0.9rem;
             }
-            
-            .logo {
-                font-size: 2rem;
-            }
         }
 
-        #logo{
-            background-image: url(logo\ escola.jpg);
-            padding: 0px;
-            padding-bottom: 150px;
-            background-size: 200px;
-            background-position: 40% 90%;
-            background-repeat: no-repeat;
+        @media (max-width: 480px) {
+            .logo-title {
+                font-size: 1.5rem;
+            }
             
-        }
-        #t{
-            color: yellow;
+            .tab-button {
+                padding: 10px;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <div id="logo">
-                <h1 id="t">Curso tecnico em administração</h1>
-                <h2 >Formação profissional completa para o mercado de trabalho</h2>
+            <div class="header-content">
+                <div class="logo-container">
+                    <!-- Substitua pelo caminho real da sua logo -->
+                    <img src="logo escola.jpg" alt="Logo do Curso" class="logo">
+                </div>
+                <div class="title-container">
+                    <h1 class="logo-title">Curso Técnico em Administração</h1>
+                    <h2 class="subtitle">Formação profissional completa para o mercado de trabalho</h2>
+                </div>
             </div>
         </div>
     </header>
@@ -202,8 +252,6 @@
         <div id="sobre" class="tab-content active">
             <h2>Sobre o Curso</h2>
             <p>O Curso Técnico em Administração oferece formação profissional para atuação em diversos segmentos do mercado de trabalho. Nosso programa combina teoria e prática para preparar os alunos para os desafios do mundo empresarial.</p>
-            
-            
             
             <h3>Diferenciais do Nosso Curso</h3>
             <ul class="subject-list">

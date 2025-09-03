@@ -29,19 +29,51 @@
             background: linear-gradient(135deg, #040505, #1d7505);
             color: white;
             padding: 20px 0;
-            text-align: center;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .logo-container {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100px;
+            height: 100px;
+        }
+        
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0.9;
+            border-radius: 8px;
+        }
+        
+        .title-content {
+            text-align: center;
+            padding: 0 120px; /* Espaço para a logo */
         }
         
         .logo {
             font-size: 2.5rem;
             font-weight: bold;
             margin-bottom: 10px;
+            color: #0F52BA; /* Amarelo dourado */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         
         .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
+            font-size: 1.3rem;
+            opacity: 0.95;
+            font-weight: 300;
         }
         
         .tabs {
@@ -150,35 +182,60 @@
         }
         
         @media (max-width: 768px) {
-            .tab-button {
-                padding: 12px 15px;
-                font-size: 0.9rem;
+            .header-content {
+                flex-direction: column;
+            }
+            
+            .logo-container {
+                position: relative;
+                left: 0;
+                top: 0;
+                transform: none;
+                margin: 0 auto 15px;
+            }
+            
+            .title-content {
+                padding: 0;
             }
             
             .logo {
                 font-size: 2rem;
             }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .tab-button {
+                padding: 12px 15px;
+                font-size: 0.9rem;
+            }
         }
 
-        #logo{
-            background-image: url(logo\ escola.jpg);
-            padding: 0px;
-            padding-bottom: 150px;
-            background-size: 200px;
-            background-position: right;
-            background-repeat: no-repeat;
-            opacity: 0.092233544354;
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.7rem;
+            }
+            
+            .tab-button {
+                padding: 10px;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <div id="logo">
-                <h1>Curso tecnico em administração</h1>
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="logo escola.jpg" alt="Logo do Curso" class="logo-img">
+                </div>
+                <div class="title-content">
+                    <div class="logo">Curso Técnico em Administração</div>
+                    <div class="subtitle">Formação profissional completa para o mercado de trabalho</div>
+                </div>
             </div>
-            <div class="logo">Curso Técnico em Administração</div>
-            <div class="subtitle">Formação profissional completa para o mercado de trabalho</div>
         </div>
     </header>
     
@@ -259,7 +316,7 @@
         <div id="capacidade" class="tab-content">
             <h2>Capacidade de Alunos</h2>
             <div class="info-card">
-                <p><strong>Vagas por turma:</strong> 25 a 26 alunos</p>
+                <p><strong>Vagas per turma:</strong> 25 a 26 alunos</p>
             </div>
             
             <p>Limitamos intencionalmente o número de alunos por turma para garantir:</p>
@@ -348,7 +405,7 @@
             <h3>Fábricas e Centros de Produção</h3>
             <ul class="subject-list">
                 <li>Visitas a linhas de produção para compreensão de processos industriais</li>
-                <li>Análise de gestão da qualidade e controle de produção</li>
+                <li>Análise de gestão da qualidade e controle de production</li>
                 <li>Estudo de logística e cadeia de suprimentos in loco</li>
                 <li>Observação de práticas de segurança no trabalho</li>
             </ul>
@@ -357,7 +414,7 @@
             <ul class="subject-list">
                 <li>Participação em palestras e eventos acadêmicos</li>
                 <li>Utilização de laboratórios e bibliotecas universitárias</li>
-                <li>Contato com professores e estudantes do ensino superior</li>
+                <li>Contato with professores e estudantes do ensino superior</li>
                 <li>Orientação sobre possibilidades de continuidade dos estudos</li>
             </ul>
             

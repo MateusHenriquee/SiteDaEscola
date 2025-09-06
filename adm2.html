@@ -3,15 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colégio Mario Brandão Teixeira Braga</title>
+    <title>Curso Técnico de Administração</title>
     <link rel="stylesheet" href="style2.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
+        /* Estilos para o cabeçalho principal */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #000;
+            color: white;
+            height: 80px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-info {
+            text-align: center;
+            flex-grow: 1;
+            margin-left: 20px;
+        }
+
+        .header-info h1 {
+            font-size: 1.5em;
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        .header-info h2 {
+            font-size: 0.9em;
+            margin: 0;
+            font-weight: normal;
+            color: #ccc;
+        }
+
+        .logo {
+            flex-shrink: 0;
+        }
+        
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            margin-right: 15px;
+        }
+
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .main-container {
+            display: flex;
+            height: calc(100vh - 80px);
+        }
+
+        /* Estilos para as seções de informações do curso */
+        .course-info-section {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+            color: #000;
+        }
+
+        .course-info-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .course-info-section h3 {
+            color: #0056b3;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        /* Estilo para a lista de alunos (agora na área de conteúdo) */
+        .students-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .students-list li {
+            color: #000;
+            padding: 12px 15px;
+            border-bottom: 1px solid #d3d3d3;
+            background-color: #f0f0f0;
+            transition: background-color 0.3s ease;
+        }
+
+        .students-list li:hover {
+            background-color: #e0e0e0;
+        }
+
+        .students-list li:last-child {
+            border-bottom: none;
+        }
+
         /* Adicione este estilo para aumentar o tamanho das logos das redes sociais */
         .social-media img {
-            width: 40px; /* Você pode ajustar este valor conforme o desejado */
-            height: 40px; /* Mantém a proporção */
-            margin: 5px; /* Adiciona um pequeno espaçamento entre elas */
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+        }
+
+        /* Estilos para as janelas modais */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-content h2 {
+            color: #0056b3;
+            margin-bottom: 20px;
+        }
+
+        .modal-content form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .modal-content label {
+            align-self: flex-start;
+            font-weight: bold;
+        }
+
+        .modal-content input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .modal-content button {
+            padding: 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .modal-content button:hover {
+            background-color: #0056b3;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #aaa;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -20,6 +198,10 @@
     <header>
         <div class="logo">
             <img src="logo escola.jpg" alt="Logotipo da escola M.B.T.B.">
+        </div>
+        <div class="header-info">
+            <h1>Curso Técnico de Administração</h1>
+            <h2>Colégio Mario Brandão Teixeira Braga</h2>
         </div>
         <div class="search-bar">
             <input type="text" placeholder="Pesquisar...">
@@ -35,9 +217,16 @@
         <aside class="sidebar">
             <nav>
                 <ul>
-                    <li><a href="#"><span class="material-icons">menu</span><span>MENU</span></a></li>
-                    <li><a href="#"><span class="material-icons">home</span><span>INÍCIO</span></a></li>
-                    <li><a href="#"><span class="material-icons">person</span><span>ALUNOS</span></a></li>
+                    <li><a href="#" class="sidebar-link" data-target="home-section"><span class="material-icons">home</span><span>INÍCIO</span></a></li>
+                    <li><a href="#" class="sidebar-link" data-target="alunos-section"><span class="material-icons">person</span><span>ALUNOS</span></a></li>
+                    <li><a href="#" class="sidebar-link" data-target="carga-horaria-section"><span class="material-icons">schedule</span><span>CARGA HORÁRIA</span></a></li>
+                    <li><a href="#" class="sidebar-link" data-target="materias-curso-section"><span class="material-icons">library_books</span><span>MATÉRIAS DO CURSO</span></a></li>
+                    <li><a href="#" class="sidebar-link" data-target="capacidade-alunos-section"><span class="material-icons">group</span><span>CAPACIDADE DE ALUNOS</span></a></li>
+                    <li><a href="#" class="sidebar-link" data-target="materias-diminuidas-section"><span class="material-icons">remove_circle_outline</span><span>MATÉRIAS DIMINUÍDAS</span></a></li>
+                    <li><a href="#" class="sidebar-link" data-target="turno-section"><span class="material-icons">access_time</span><span>TURNO</span></a></li>
+                    <li><a href="#" class="sidebar-link" data-target="requisitos-section"><span class="material-icons">check_circle</span><span>REQUISITOS BÁSICOS</span></a></li>
+                    <li><a href="#" class="sidebar-link" data-target="aulas-campo-section"><span class="material-icons">landscape</span><span>AULAS DE CAMPO</span></a></li>
+                    <li><a href="#" class="sidebar-link" data-target="empregos-disponiveis-section"><span class="material-icons">work</span><span>EMPREGOS DISPONÍVEIS</span></a></li>
                 </ul>
             </nav>
             <div class="social-media">
@@ -48,16 +237,221 @@
         </aside>
 
         <main class="content">
-            <div class="news-section">
-                <h2>Novidades</h2>
-                <p>Recentemente após o recebimento das verbas escolares, a escola Mário Braga comprou novos computadores de alta potência para Alunos do novo Ensino Técnico em desenvolvimento de sistemas para ajudar os alunos em suas ativades do curso.</p>
+            <div id="home-section" class="course-info-section active">
+                <div class="news-section">
+                    <h3>Novidades</h3>
+                    <p>Recentemente após o recebimento das verbas escolares, a escola Mário Braga comprou novos computadores de alta potência para Alunos do novo Ensino Técnico em desenvolvimento de sistemas para ajudar os alunos em suas ativades do curso.</p>
+                </div>
+                <div class="updates-section">
+                    <h3>Atualizações</h3>
+                    <p>Alunos terão que atualizar sua matricula em breve e alunos que não assinaram a ficha cadastral devem procurar a secretária urgentemente.</p>
+                </div>
             </div>
-            <div class="updates-section">
-                <h2>Atualizações</h2>
-                <p>Alunos terão que atualizar sua matricula em breve e alunos que não assinaram a ficha cadastral devem procurar a secretária urgentemente.</p>
+
+            <div id="alunos-section" class="course-info-section">
+                <h3>Lista de Alunos</h3>
+                <ul class="students-list">
+                    <li>Ana Silva</li>
+                    <li>Bruno Costa</li>
+                    <li>Carla Dias</li>
+                    <li>Daniel Pereira</li>
+                    <li>Eduarda Santos</li>
+                    <li>Fernando Lima</li>
+                    <li>Gabriela Rocha</li>
+                    <li>Henrique Souza</li>
+                    <li>Isabela Almeida</li>
+                    <li>João Mendes</li>
+                    <li>Larissa Fernandes</li>
+                    <li>Marcelo Oliveira</li>
+                    <li>Natália Gomes</li>
+                    <li>Otávio Barbosa</li>
+                    <li>Patrícia Carvalho</li>
+                    <li>Rafael Vieira</li>
+                    <li>Sofia Martins</li>
+                    <li>Thiago Ribeiro</li>
+                    <li>Vitória Nunes</li>
+                    <li>Wagner Castro</li>
+                </ul>
+            </div>
+
+            <div id="carga-horaria-section" class="course-info-section">
+                <h3>Carga Horária</h3>
+                <p>O curso tem uma duração de <strong>3 anos</strong>, totalizando <strong>3000 horas</strong> de estudo e prática.</p>
+            </div>
+
+            <div id="materias-curso-section" class="course-info-section">
+                <h3>Matérias do Curso</h3>
+                <ul>
+                    <li>Administração Financeira e Orçamentária</li>
+                    <li>Tecnologias e Ferramentas de Gestão</li>
+                    <li>Introdução à Economia</li>
+                    <li>Liderança e Gestão de Pessoas</li>
+                    <li>Introdução ao Marketing</li>
+                </ul>
+            </div>
+
+            <div id="capacidade-alunos-section" class="course-info-section">
+                <h3>Capacidade de Alunos</h3>
+                <p>Cada turma do curso tem uma capacidade para <strong>25 a 26 alunos</strong>, garantindo um ambiente de aprendizado focado e com atenção individualizada.</p>
+            </div>
+
+            <div id="materias-diminuidas-section" class="course-info-section">
+                <h3>Matérias com Carga Horária Diminuída</h3>
+                <p>As seguintes disciplinas têm sua carga horária ajustada para dar maior foco às competências técnicas do curso:</p>
+                <ul>
+                    <li>Arte</li>
+                    <li>Filosofia</li>
+                    <li>Sociologia</li>
+                    <li>História</li>
+                    <li>Projeto de Vida</li>
+                </ul>
+            </div>
+
+            <div id="turno-section" class="course-info-section">
+                <h3>Turno</h3>
+                <p>O curso é oferecido nos turnos da <strong>Manhã e Noite</strong>. (O turno da Noite está atualmente em desenvolvimento).</p>
+            </div>
+
+            <div id="requisitos-section" class="course-info-section">
+                <h3>Requisitos Básicos</h3>
+                <p>Para ingressar no curso, é necessário ter concluído o <strong>9º ano do Ensino Fundamental</strong>.</p>
+            </div>
+
+            <div id="aulas-campo-section" class="course-info-section">
+                <h3>Aulas de Campo</h3>
+                <p>Os alunos terão a oportunidade de participar de aulas de campo em:</p>
+                <ul>
+                    <li>Fábricas</li>
+                    <li>Faculdades</li>
+                </ul>
+            </div>
+
+            <div id="empregos-disponiveis-section" class="course-info-section">
+                <h3>Empregos Disponíveis para Quem Fez o Curso</h3>
+                <p>Após a conclusão do curso, os alunos estarão aptos a atuar em diversas áreas, incluindo:</p>
+                <ul>
+                    <li>Auxiliar de Informática</li>
+                    <li>Negociação e Vendas</li>
+                    <li>Auxiliar em Recursos Humanos (RH)</li>
+                </ul>
             </div>
         </main>
     </div>
 
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Login</h2>
+            <form>
+                <label for="username">Usuário:</label>
+                <input type="text" id="username" name="username">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password">
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Registro</h2>
+            <form>
+                <label for="new-username">Usuário:</label>
+                <input type="text" id="new-username" name="new-username">
+                <label for="new-email">Email:</label>
+                <input type="email" id="new-email" name="new-email">
+                <label for="new-password">Senha:</label>
+                <input type="password" id="new-password" name="new-password">
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebarLinks = document.querySelectorAll('.sidebar-link');
+            const contentSections = document.querySelectorAll('.course-info-section');
+
+            function showSection(targetId) {
+                contentSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                sidebarLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+                const targetSection = document.getElementById(targetId);
+                const targetLink = document.querySelector(`.sidebar-link[data-target="${targetId}"]`);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+                if (targetLink) {
+                    targetLink.classList.add('active');
+                }
+            }
+
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const targetId = this.getAttribute('data-target');
+                    showSection(targetId);
+                });
+            });
+
+            // Código para a barra de pesquisa
+            const searchInput = document.querySelector('.search-bar input');
+            const studentsList = document.querySelector('.students-list');
+            const studentItems = studentsList.querySelectorAll('li');
+
+            searchInput.addEventListener('keyup', function(event) {
+                const searchText = event.target.value.toLowerCase();
+                
+                showSection('alunos-section');
+                
+                studentItems.forEach(item => {
+                    const studentName = item.textContent.toLowerCase();
+                    if (studentName.includes(searchText)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+
+            // Código para os modais de login e registro
+            const loginBtn = document.querySelector('.login');
+            const registerBtn = document.querySelector('.register');
+            const loginModal = document.getElementById('loginModal');
+            const registerModal = document.getElementById('registerModal');
+            const closeBtns = document.querySelectorAll('.close-btn');
+
+            loginBtn.addEventListener('click', () => {
+                loginModal.classList.add('show');
+            });
+
+            registerBtn.addEventListener('click', () => {
+                registerModal.classList.add('show');
+            });
+
+            closeBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    loginModal.classList.remove('show');
+                    registerModal.classList.remove('show');
+                });
+            });
+
+            // Fechar modal ao clicar fora da caixa
+            window.addEventListener('click', (event) => {
+                if (event.target === loginModal) {
+                    loginModal.classList.remove('show');
+                }
+                if (event.target === registerModal) {
+                    registerModal.classList.remove('show');
+                }
+            });
+
+            showSection('home-section');
+        });
+    </script>
 </body>
 </html>

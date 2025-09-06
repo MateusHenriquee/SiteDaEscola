@@ -1,0 +1,144 @@
+/* Importação da fonte para os ícones */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column; /* Para a barra superior e o restante do conteúdo */
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #1E7F3D, #0A4A1C); /* Gradiente verde do topo para baixo */
+    color: #fff;
+}
+
+header {
+    background-color: #000; /* Fundo preto para o cabeçalho */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #333; /* Uma linha sutil abaixo do cabeçalho */
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 40px; /* Ajuste o tamanho do logo */
+    margin-right: 10px;
+}
+
+header .search-bar input {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+}
+
+header .user-actions button {
+    background-color: #4CAF50; /* Verde para os botões */
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+header .user-actions button.register {
+    background-color: #2196F3; /* Azul para o botão de registro */
+}
+
+header .user-actions .settings {
+    margin-left: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.main-container {
+    display: flex;
+    flex: 1; /* Ocupa o restante do espaço vertical */
+}
+
+.sidebar {
+    width: 200px;
+    background: linear-gradient(to top, #0A4A1C, #1E7F3D); /* Gradiente verde escuro para o menu lateral */
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empurra as redes sociais para baixo */
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar nav ul li a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.sidebar nav ul li a:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.sidebar nav ul li a .material-icons {
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+.sidebar .social-media {
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.sidebar .social-media img {
+    height: 30px; /* Tamanho dos ícones de redes sociais */
+    width: 30px;
+    border-radius: 50%; /* Para que as imagens pareçam círculos */
+}
+
+.content {
+    flex: 1; /* Ocupa todo o espaço restante horizontalmente */
+    padding: 30px;
+    background-color: rgba(0,0,0,0.4); /* Fundo semi-transparente para o conteúdo principal */
+    margin: 20px; /* Margem ao redor da área de conteúdo */
+    border-radius: 10px;
+    overflow-y: auto; /* Adiciona scroll se o conteúdo for muito longo */
+}
+
+.news-section, .updates-section {
+    background-color: rgba(255,255,255,0.1); /* Fundo mais claro para as seções */
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 5px solid #4CAF50; /* Uma linha verde na lateral */
+}
+
+.news-section h2, .updates-section h2 {
+    color: #90EE90; /* Um verde claro para os títulos */
+    margin-top: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.news-section p, .updates-section p {
+    line-height: 1.6;
+    color: #E0E0E0;
+}

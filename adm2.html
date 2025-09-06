@@ -1,472 +1,63 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso Técnico em Administração</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Colégio Mario Brandão Teixeira Braga</title>
+    <link rel="stylesheet" href="style2.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f5f5;
-            color: #000000;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #040505, #1d7505);
-            color: white;
-            padding: 20px 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .logo-container {
-            width: 120px;
-            height: 120px;
-            margin-right: 20px;
-            flex-shrink: 0;
-        }
-        
-        .logo {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            opacity: 0.9; /* Transparência da logo */
-        }
-        
-        .title-container {
-            flex: 1;
-        }
-        
-        .logo-title {
-            font-size: 2.2rem;
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: yellow;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 600px;
-        }
-        
-        .tabs {
-            display: flex;
-            flex-wrap: wrap;
-            background-color: #055a06;
-            justify-content: center;
-        }
-        
-        .tab-button {
-            padding: 20px 25px;
-            background-color: #055d224e;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .tab-button:hover {
-            background-color: #34495e;
-        }
-        
-        .tab-button.active {
-            background-color: #8db513c8;
-            font-weight: bold;
-        }
-        
-        .tab-content {
-            display: none;
-            padding: 30px;
-            background-color: white;
-            border-radius: 0 0 8px 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            min-height: 500px;
-            margin-bottom: 30px;
-        }
-        
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.5s;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        h2 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-            /* REMOVIDO: border-bottom: 2px solid #7f0d00; */
-        }
-        
-        h3 {
-            color: #061188;
-            margin: 15px 0 10px;
-        }
-        
-        .info-card {
-            background-color: #f9f9f9;
-            border-left: 4px solid #1a087d;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 0 4px 4px 0;
-        }
-        
-        .subject-list, .job-list {
-            list-style-type: none;
-        }
-        
-        .subject-list li, .job-list li {
-            padding: 8px 0;
-            border-bottom: 1px dashed #ddd;
-        }
-        
-        .subject-list li:before, .job-list li:before {
-            content: "•";
-            color: #3cc2e7;
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-        }
-        
-        .highlight {
-            background-color: #fff4f4;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #ffdddd;
-            margin: 20px 0;
-        }
-        
-        .warning {
-            color: #360dbc;
-            font-weight: bold;
-        }
-        
-        footer {
-            background-color: #114e03;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 30px;
-        }
-        
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .logo-container {
-                margin-right: 0;
-                margin-bottom: 15px;
-                width: 100px;
-                height: 100px;
-            }
-            
-            .logo-title {
-                font-size: 1.8rem;
-            }
-            
-            .subtitle {
-                font-size: 1rem;
-            }
-            
-            .tab-button {
-                padding: 12px 15px;
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo-title {
-                font-size: 1.5rem;
-            }
-            
-            .tab-button {
-                padding: 10px;
-                font-size: 0.8rem;
-            }
+        /* Adicione este estilo para aumentar o tamanho das logos das redes sociais */
+        .social-media img {
+            width: 40px; /* Você pode ajustar este valor conforme o desejado */
+            height: 40px; /* Mantém a proporção */
+            margin: 5px; /* Adiciona um pequeno espaçamento entre elas */
         }
     </style>
 </head>
 <body>
+
     <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo-container">
-                    <!-- Substitua pelo caminho real da sua logo -->
-                    <img src="logo escola.jpg" alt="Logo do Curso" class="logo">
-                </div>
-                <div class="title-container">
-                    <h1 class="logo-title">Curso Técnico em Administração</h1>
-                    <h2 class="subtitle">Formação profissional completa para o mercado de trabalho</h2>
-                </div>
-            </div>
+        <div class="logo">
+            <img src="logo escola.jpg" alt="Logotipo da escola M.B.T.B.">
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Pesquisar...">
+        </div>
+        <div class="user-actions">
+            <button class="login">LOGIN</button>
+            <button class="register">REGISTRO</button>
+            <span class="settings material-icons">settings</span>
         </div>
     </header>
-    
-    <div class="tabs">
-        <div class="container">
-            <button class="tab-button active" onclick="openTab('sobre')">Sobre o Curso</button>
-            <button class="tab-button" onclick="openTab('carga')">Carga Horária</button>
-            <button class="tab-button" onclick="openTab('materias')">Matérias</button>
-            <button class="tab-button" onclick="openTab('capacidade')">Capacidade</button>
-            <button class="tab-button" onclick="openTab('reduzidas')">Matérias Reduzidas</button>
-            <button class="tab-button" onclick="openTab('turno')">Turnos</button>
-            <button class="tab-button" onclick="openTab('requisitos')">Requisitos</button>
-            <button class="tab-button" onclick="openTab('campo')">Aulas de Campo</button>
-            <button class="tab-button" onclick="openTab('empregos')">Oportunidades</button>
-        </div>
-    </div>
-    
-    <div class="container">
-        <div id="sobre" class="tab-content active">
-            <h2>Sobre o Curso</h2>
-            <p>O Curso Técnico em Administração oferece formação profissional para atuação em diversos segmentos do mercado de trabalho. Nosso programa combina teoria e prática para preparar os alunos para os desafios do mundo empresarial.</p>
-            
-            <h3>Diferenciais do Nosso Curso</h3>
-            <ul class="subject-list">
-                <li>Professores com experiência de mercado</li>
-                <li>Infraestrutura moderna e adequada para o aprendizado</li>
-                <li>Metodologia que combina teoria e prática</li>
-                <li>Parcerias com empresas para estágios</li>
-                <li>Aulas de campo em ambientes reals de trabalho</li>
-            </ul>
-        </div>
-        
-        <div id="carga" class="tab-content">
-            <h2>Carga Horária</h2>
-            <div class="info-card">
-                <p><strong>Duração:</strong> 3 anos</p>
-                <p><strong>Carga horária total:</strong> 3000 horas</p>
-            </div>
-            
-            <p>Nossa carga horária é distribuída de forma equilibrada entre:</p>
-            <ul class="subject-list">
-                <li>Disciplinas teóricas fundamentais</li>
-                <li>Atividades práticas e laboratoriais</li>
-                <li>Aulas de campo e visitas técnicas</li>
-                <li>Projetos interdisciplinares</li>
-                <li>Estágio supervisionado</li>
-            </ul>
-            
-            <p>A distribuição da carga horária ao longo dos 3 anos permite um aprendizado progressivo e consolidado, garantindo que os alunos absorvam completamente os conteúdos antes de avançar para tópicos mais complexos.</p>
-        </div>
-        
-        <div id="materias" class="tab-content">
-            <h2>Matérias do Curso</h2>
-            <p>O currículo do curso é composto por disciplinas cuidadosamente selecionadas para fornecer uma formação completa em administração. As principais matérias incluem:</p>
-            
-            <h3>Matérias Técnicas Principais</h3>
-            <ul class="subject-list">
-                <li><strong>Administração Financeira e Orçamentária</strong> - Estudo das finanças empresariais, elaboração e controle de orçamentos</li>
-                <li><strong>Tecnologias e Ferramentas de Gestão</strong> - Uso de softwares e sistemas de gestão empresarial</li>
-                <li><strong>Introdução à Economia</strong> - Fundamentos da micro e macroeconomia aplicados aos negócios</li>
-                <li><strong>Liderança e Gestão de Pessoas</strong> - Técnicas de gestão de equipes e desenvolvimento de liderança</li>
-                <li><strong>Introdução ao Marketing</strong> - Princípios de marketing, pesquisa de mercado e estratégias comerciais</li>
-            </ul>
-            
-            <h3>Outras Disciplinas Relevantes</h3>
-            <ul class="subject-list">
-                <li>Gestão de Processos</li>
-                <li>Contabilidade Básica</li>
-                <li>Direito Empresarial</li>
-                <li>Gestão de Projetos</li>
-                <li>Empreendedorismo</li>
-                <li>Logística e Cadeia de Suprimentos</li>
-            </ul>
-        </div>
-        
-        <div id="capacidade" class="tab-content">
-            <h2>Capacidade de Alunos</h2>
-            <div class="info-card">
-                <p><strong>Vagas por turma:</strong> 25 a 26 alunos</p>
-            </div>
-            
-            <p>Limitamos intencionalmente o número de alunos por turma para garantir:</p>
-            <ul class="subject-list">
-                <li>Atendimento individualizado aos estudantes</li>
-                <li>Melhor interação entre alunos e professores</li>
-                <li>Ambiente de aprendizagem mais produtivo</li>
-                <li>Infraestrutura adequada sem superlotação</li>
-                <li>Maior aproveitamento das atividades práticas</li>
-            </ul>
-            
-            <p>Essa capacidade permite que os professores conheçam cada aluno individualmente, identifiquem suas dificuldades e potencialidades e possam oferecer um acompanhamento mais personalizado.</p>
-        </div>
-        
-        <div id="reduzidas" class="tab-content">
-            <h2>Matérias com Carga Horária Reduzida</h2>
-            <p>Algumas disciplinas têm carga horária adaptada para focar nas competências essenciais do curso técnico:</p>
-            
-            <ul class="subject-list">
-                <li><strong>Arte</strong> - 40 horas (ênfase em criatividade aplicada aos negócios)</li>
-                <li><strong>Filosofia</strong> - 40 horas (foco em ética empresarial)</li>
-                <li><strong>Sociologia</strong> - 40 horas (ênfase em relações de trabalho e organizações)</li>
-                <li><strong>História</strong> - 40 horas (foco na história econômica e empresarial)</li>
-                <li><strong>Projeto de Vida</strong> - 40 horas (planejamento de carreira e desenvolvimento pessoal)</li>
-            </ul>
-            
-            <div class="highlight">
-                <p>Embora estas disciplinas tenham carga horária reduzida em comparação com o ensino regular, seus conteúdos foram adaptados para atender especificamente às necessidades da formação em administração, mantendo a qualidade e relevância para a profissão.</p>
-            </div>
-        </div>
-        
-        <div id="turno" class="tab-content">
-            <h2>Turnos de Funcionamento</h2>
-            <div class="info-card">
-                <p><strong>Manhã:</strong> 07:30 às 12:45</p>
-                <p><strong>Noite:</strong> 19:00 às 23:00</p>
-                <p class="warning">Turno da noite: Em desenvolvimento</p>
-            </div>
-            
-            <h3>Vantagens de Cada Turno</h3>
-            <p><strong>Turno da Manhã:</strong></p>
-            <ul class="subject-list">
-                <li>Ideal para quem prefere estudar com a mente fresca</li>
-                <li>Possibilidade de trabalhar à tarde/noite</li>
-                <li>Melhor aproveitamento para atividades que exigem concentração</li>
-            </ul>
-            
-            <p><strong>Turno da Noite:</strong></p>
-            <ul class="subject-list">
-                <li>Permite trabalhar durante o dia</li>
-                <li>Atende a estudantes que já estão no mercado de trabalho</li>
-                <li>Professores com disponibilidade de profissionais atuantes</li>
-            </ul>
-        </div>
-        
-        <div id="requisitos" class="tab-content">
-            <h2>Requisitos Básicos</h2>
-            <div class="info-card">
-                <p><strong>Escolaridade mínima:</strong> Ensino Fundamental completo (9º ano)</p>
-            </div>
-            
-            <h3>Documentação Necessária para Matrícula</h3>
-            <ul class="subject-list">
-                <li>Histórico escolar do Ensino Fundamental</li>
-                <li>Certificado de conclusão do Ensino Fundamental</li>
-                <li>Documento de identidade (RG) и CPF</li>
-                <li>Comprovante de residência</li>
-                <li>2 fotos 3x4</li>
-            </ul>
-            
-            <h3>Perfil Desejado do Candidato</h3>
-            <p>Embora não sejam requisitos obrigatórios, os seguintes atributos são desejáveis:</p>
-            <ul class="subject-list">
-                <li>Interesse por atividades organizacionais</li>
-                <li>Habilidade para trabalhar em equipe</li>
-                <li>Capacidade de comunicação</li>
-                <li>Raciocínio lógico</li>
-                <li>Responsabilidade и comprometimento</li>
-            </ul>
-        </div>
-        
-        <div id="campo" class="tab-content">
-            <h2>Aulas de Campo</h2>
-            <p>O curso inclui visitas técnicas e aulas de campo que complementam o aprendizado em sala de aula:</p>
-            
-            <h3>Fábricas e Centros de Produção</h3>
-            <ul class="subject-list">
-                <li>Visitas a linhas de produção para compreensão de processos industriais</li>
-                <li>Análise de gestão da qualidade e controle de produção</li>
-                <li>Estudo de logística e cadeia de suprimentos in loco</li>
-                <li>Observação de práticas de segurança no trabalho</li>
-            </ul>
-            
-            <h3>Faculdades e Centros Universitários</h3>
-            <ul class="subject-list">
-                <li>Participação em palestras e eventos acadêmicos</li>
-                <li>Utilização de laboratórios e bibliotecas universitárias</li>
-                <li>Contato com professores e estudantes do ensino superior</li>
-                <li>Orientação sobre possibilidades de continuidade dos estudos</li>
-            </ul>
-            
-            <div class="highlight">
-                <p>As aulas de campo são componentes curriculares obrigatórios e estão incluídas na carga horária total do curso. Todos os custos de transporte e ingressos são cobertos pela instituição.</p>
-            </div>
-        </div>
-        
-        <div id="empregos" class="tab-content">
-            <h2>Oportunidades de Emprego</h2>
-            <p>Após a conclusão do curso, os técnicos em administração podem atuar em diversas áreas e funções, incluindo:</p>
-            
-            <h3>Principais Oportunidades</h3>
-            <ul class="job-list">
-                <li><strong>Auxiliar de Administração</strong> - Suporte às atividades administrativas em diversos departamentos</li>
-                <li><strong>Negociação e Vendas</strong> - Atuação em áreas comerciais, representação e telemarketing</li>
-                <li><strong>Auxiliar em Recursos Humanos</strong> - Suporte em processos de recrutamento, seleção e departamento pessoal</li>
-            </ul>
-            
-            <h3>Outras Oportunidades</h3>
-            <ul class="job-list">
-                <li>Assistente Financeiro</li>
-                <li>Assistente de Logística</li>
-                <li>Atendimento ao Cliente</li>
-                <li>Assistente de Marketing</li>
-                <li>Empreendedorismo (abrir próprio negócio)</li>
-            </ul>
-            
-            <div class="highlight">
-                <p>Segundo pesquisas do mercado, mais de 80% dos nossos egressos estão empregados na área em até 6 meses após a conclusão do curso, com remuneração inicial média de R$ 1.800,00.</p>
-            </div>
-        </div>
-    </div>
-    
-    <footer>
-        <div class="container">
-            <p>Curso Técnico em Administração | Formando Profissionais para o Sucesso</p>
-            <p>Telefone: +55 (41) 3673-2322   | Email: </p>
-            <p>Endereço:  R. Reinaldo Meira, 1150 - Vila Sao Cristovao, Piraquara - PR, 83305-100 </p>
-        </div>
-    </footer>
 
-    <script>
-        function openTab(tabId) {
-            // Esconde todos os conteúdos das abas
-            var tabContents = document.getElementsByClassName('tab-content');
-            for (var i = 0; i < tabContents.length; i++) {
-                tabContents[i].classList.remove('active');
-            }
-            
-            // Remove a classe active de todos os botões
-            var tabButtons = document.getElementsByClassName('tab-button');
-            for (var i = 0; i < tabButtons.length; i++) {
-                tabButtons[i].classList.remove('active');
-            }
-            
-            // Mostra a aba selecionada e marca o botão como active
-            document.getElementById(tabId).classList.add('active');
-            event.currentTarget.classList.add('active');
-        }
-    </script>
+    <div class="main-container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="#"><span class="material-icons">menu</span><span>MENU</span></a></li>
+                    <li><a href="#"><span class="material-icons">home</span><span>INÍCIO</span></a></li>
+                    <li><a href="#"><span class="material-icons">person</span><span>ALUNOS</span></a></li>
+                </ul>
+            </nav>
+            <div class="social-media">
+                <a href="https://api.whatsapp.com/send?phone=5541997430219" target="_blank"><img src="whastsapp.png" alt="Whatsapp"></a>
+                <a href="https://www.instagram.com/explore/locations/198031043913528/colegio-estadual-prof-mario-teixeira-braga/" target="_blank"><img src="instagram.png" alt="Instagram"></a>
+                <a href="https://www.facebook.com/groups/152016405517928/?locale=pt_BR" target="_blank"><img src="facebook.png" alt="Facebook"></a>
+            </div>
+        </aside>
+
+        <main class="content">
+            <div class="news-section">
+                <h2>Novidades</h2>
+                <p>Recentemente após o recebimento das verbas escolares, a escola Mário Braga comprou novos computadores de alta potência para Alunos do novo Ensino Técnico em desenvolvimento de sistemas para ajudar os alunos em suas ativades do curso.</p>
+            </div>
+            <div class="updates-section">
+                <h2>Atualizações</h2>
+                <p>Alunos terão que atualizar sua matricula em breve e alunos que não assinaram a ficha cadastral devem procurar a secretária urgentemente.</p>
+            </div>
+        </main>
+    </div>
+
 </body>
 </html>

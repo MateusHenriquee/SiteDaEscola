@@ -1,0 +1,266 @@
+/* Importação da fonte para os ícones */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #1E7F3D, #0A4A1C);
+    color: #f7f7f7;
+}
+
+header {
+    background-color: #000;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #333;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+header .search-bar input {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+}
+
+/* Estilos para os botões de Login e Registro */
+header .user-actions button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+header .user-actions button.register {
+    background-color: #28a745;
+}
+
+header .user-actions button:hover {
+    background-color: #0056b3;
+}
+
+header .user-actions .settings {
+    margin-left: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    vertical-align: middle;
+    color: white;
+}
+
+.main-container {
+    display: flex;
+    flex: 1;
+}
+
+.sidebar {
+    width: 200px;
+    background: linear-gradient(to top, #0A4A1C, #1E7F3D);
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar nav ul li a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.sidebar nav ul li a:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.sidebar nav ul li a .material-icons {
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+.sidebar .social-media {
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.sidebar .social-media img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.content {
+    flex: 1;
+    padding: 30px;
+    background-color: rgba(0,0,0,0.4);
+    margin: 20px;
+    border-radius: 10px;
+    overflow-y: auto;
+}
+
+/* Estilos para as seções de informações do curso */
+.course-info-section {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.course-info-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.course-info-section h3 {
+    color: #0056b3;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.course-info-section p, .course-info-section ul, .course-info-section li, .course-info-section strong {
+    color: #000; /* Garante que o texto nas seções internas seja preto */
+}
+
+/* ESTILOS ESPECÍFICOS PARA OS PARÁGRAFOS NAS SEÇÕES DE NOTÍCIAS */
+.news-section p, .updates-section p {
+    line-height: 1.6;
+    color: #000000; /* O texto agora será preto */
+}
+
+/* Estilos para a lista de alunos (agora na área de conteúdo) */
+.students-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.students-list li {
+    color: #000;
+    padding: 12px 15px;
+    border-bottom: 1px solid #d3d3d3;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease;
+}
+
+.students-list li:hover {
+    background-color: #e0e0e0;
+}
+
+.students-list li:last-child {
+    border-bottom: none;
+}
+
+/* Estilos para as janelas modais */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    color: #333;
+}
+
+.modal-content h2 {
+    color: #0056b3;
+    margin-bottom: 20px;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-content label {
+    align-self: flex-start;
+    font-weight: bold;
+}
+
+.modal-content input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #000;
+}
+
+.modal-content button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modal-content button:hover {
+    background-color: #0056b3;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}

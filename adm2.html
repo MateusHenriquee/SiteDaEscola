@@ -15,27 +15,44 @@
             padding: 10px 20px;
             background-color: #000;
             color: white;
+<<<<<<< HEAD
             height: 80px; /* Aumentado para caber o novo título */
+=======
+            height: 80px;
+>>>>>>> 2bec3563ff3b79526e4100ecb216207777104e08
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         .header-info {
             text-align: center;
+<<<<<<< HEAD
             flex-grow: 1; /* Permite que o div ocupe o espaço restante */
+=======
+            flex-grow: 1;
+>>>>>>> 2bec3563ff3b79526e4100ecb216207777104e08
             margin-left: 20px;
         }
 
         .header-info h1 {
             font-size: 1.5em;
             margin: 0;
+<<<<<<< HEAD
             white-space: nowrap; /* Evita quebra de linha */
+=======
+            white-space: nowrap;
+            color: #235e9e;
+>>>>>>> 2bec3563ff3b79526e4100ecb216207777104e08
         }
 
         .header-info h2 {
             font-size: 0.9em;
             margin: 0;
             font-weight: normal;
+<<<<<<< HEAD
             color: #ccc;
+=======
+            color: #328836;
+>>>>>>> 2bec3563ff3b79526e4100ecb216207777104e08
         }
 
         .logo {
@@ -45,7 +62,11 @@
         .search-bar {
             display: flex;
             align-items: center;
+<<<<<<< HEAD
             margin-left: auto; /* Empurra a barra de pesquisa para a direita */
+=======
+            margin-left: auto;
+>>>>>>> 2bec3563ff3b79526e4100ecb216207777104e08
             margin-right: 15px;
         }
 
@@ -57,22 +78,40 @@
 
         .main-container {
             display: flex;
+<<<<<<< HEAD
             height: calc(100vh - 80px); /* Ajustado para a nova altura do cabeçalho */
+=======
+            height: calc(100vh - 80px);
+>>>>>>> 2bec3563ff3b79526e4100ecb216207777104e08
         }
 
         /* Estilos para as seções de informações do curso */
         .course-info-section {
+<<<<<<< HEAD
             background-color: #f9f9f9;
+=======
+            background-color: #ffffff;
+>>>>>>> 2bec3563ff3b79526e4100ecb216207777104e08
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 20px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+<<<<<<< HEAD
             display: none; /* ESCONDE TODAS AS SEÇÕES POR PADRÃO */
             animation: fadeIn 0.5s ease-in-out;
         }
 
         .course-info-section.active {
             display: block; /* MOSTRA APENAS A SEÇÃO ATIVA */
+=======
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+            color: #000;
+        }
+
+        .course-info-section.active {
+            display: block;
+>>>>>>> 2bec3563ff3b79526e4100ecb216207777104e08
         }
 
         @keyframes fadeIn {
@@ -95,14 +134,25 @@
         }
 
         .students-list li {
+<<<<<<< HEAD
             padding: 12px 15px;
             border-bottom: 1px solid #ddd;
             background-color: #fff;
+=======
+            color: #000;
+            padding: 12px 15px;
+            border-bottom: 1px solid #d3d3d3;
+            background-color: #f0f0f0;
+>>>>>>> 2bec3563ff3b79526e4100ecb216207777104e08
             transition: background-color 0.3s ease;
         }
 
         .students-list li:hover {
+<<<<<<< HEAD
             background-color: #f0f0f0;
+=======
+            background-color: #e0e0e0;
+>>>>>>> 2bec3563ff3b79526e4100ecb216207777104e08
         }
 
         .students-list li:last-child {
@@ -111,9 +161,89 @@
 
         /* Adicione este estilo para aumentar o tamanho das logos das redes sociais */
         .social-media img {
+<<<<<<< HEAD
             width: 40px; /* Você pode ajustar este valor conforme o desejado */
             height: 40px; /* Mantém a proporção */
             margin: 5px; /* Adiciona um pequeno espaçamento entre elas */
+=======
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+        }
+
+        /* Estilos para as janelas modais */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-content h2 {
+            color: #0056b3;
+            margin-bottom: 20px;
+        }
+
+        .modal-content form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .modal-content label {
+            align-self: flex-start;
+            font-weight: bold;
+        }
+
+        .modal-content input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .modal-content button {
+            padding: 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .modal-content button:hover {
+            background-color: #0056b3;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #aaa;
+            cursor: pointer;
+>>>>>>> 2bec3563ff3b79526e4100ecb216207777104e08
         }
     </style>
 </head>
